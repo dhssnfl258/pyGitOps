@@ -31,7 +31,7 @@ def main():
     if is_github_token_valid(token):
         print("The GitHub token is valid.")
     else:
-        print("The GitHub token is invalid or expired. .")
+        print("The GitHub token i s invalid or expired. .")
         
     print(f"Organization: {org_name}")
     list_repositories(org)
