@@ -1,1 +1,12 @@
 *.json
+
+
+# Ignore __pycache__ directory
+__pycache__/
+
+# Ignore .pyc files
+*.pyc
+
+# Ignore other Python cache files
+*.pyo
+*.pyd
