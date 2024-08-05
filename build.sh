@@ -13,7 +13,7 @@ python3 -m venv $VENV_DIR
 # 가상 환경 활성화
 source $VENV_DIR/bin/activate
 
-# 필요한 외부 라이브러리 설치
+# 필요한 외부 라이브러 리 설치
 pip install -r requirements.txt
 
 # pyinstaller 설치
