@@ -17,13 +17,12 @@ def resource_path(relative_path):
     return os.path.join(base_path, relative_path)
 
 def main():
-    #Organization Access Token
-    config_path = resource_path('data/config.json')
-
-    with open(config_path,'r') as config_file:
-        config = json.load(config_file)
+    # Organization Access Token from environment variable
+    token = os.getenv('GITHUB_OPS_TOKEN')
+    if not token:
+        print("Error: GITHUB_OPS_TOKEN environment variable is not set.")
+        sys.exit(1)
         
-    token = config.get('github_token')
     myGit = Github(token)
     org_name = 'vms-solution-g'
     org = myGit.get_organization(org_name)
@@ -31,12 +30,11 @@ def main():
     if is_github_token_valid(token):
         print("The GitHub token is valid.")
     else:
-        print("The GitHub token is  invalid or expired. .")
+        print("The GitHub token is invalid or expired.")
         
     print(f"Organization: {org_name}")
     list_repositories(org)
     print_menu(org)
-    
-    
+
 if __name__ == '__main__':
     main()
